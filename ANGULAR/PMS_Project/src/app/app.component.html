@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+<body>
+
+        <h1 >Product Management System</h1>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                             <form #myForm="ngForm">
+                                <div class="form-group">
+                                    <label for="Employee Id">
+                                        product Id
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="proid" 
+                                           #proid="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]+"
+                                            />
+                                          </label>
+
+                                </div>
+
+
+                                <div *ngIf="proid.touched">
+                                  <div *ngIf="proid.errors?.['required']">
+                                    <b style="color: red;">Product Id required.</b>
+                                  </div>
+                                  <div *ngIf="proid.errors?.['pattern']">
+                                    <font color= "red"><b>Invalid Product Id.</b></font>
+                                  </div>
+                                </div>
+                                
+
+
+
+
+                                <div class="form-group">
+                                    <label for="Employee Name">
+                                        Product Name
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="proName" 
+                                           #proName="ngModel" ngModel
+                                           required
+                                           pattern="[a-z]+"
+                                            />  </label>
+
+
+                                  <div *ngIf="proName.touched">
+                                  <div *ngIf="proName.errors?.['required']">
+                                    <b style="color: red;">Product Name required.</b>
+                                  </div>
+                                  <div *ngIf="proName.errors?.['pattern']">
+                                    <font color= "red"><b>Invalid Product Name.</b></font>
+                                  </div>
+                                </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Employee Salary">
+                                        Product Price
+                                   
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="proPrice" 
+                                           #proPrice="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]+"
+                                           /> </label>
+                                </div>
+
+                                <div *ngIf="proPrice.touched">
+                                  <div *ngIf="proPrice.errors?.['required']">
+                                    <b style="color: red;">Product Price required.</b>
+                                  </div>
+                                  <div *ngIf="proPrice.errors?.['pattern']">
+                                    <font color= "red"><b>Invalid Product Price.</b></font>
+                                  </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="Employee Salary">
+                                        Product image
+                                   
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="proimg" 
+                                           #proimg="ngModel" ngModel
+                                           required
+                                           pattern="[a-z]+"
+                                           /> </label>
+                                </div>
+
+                                <div *ngIf="proimg.touched">
+                                  <div *ngIf="proimg.errors?.['required']">
+                                    <b style="color: red;">Product Img required.</b>
+                                  </div>
+                                  <div *ngIf="proimg.errors?.['pattern']">
+                                    <font color= "red"><b>Invalid Product Img.</b></font>
+                                  </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="Employee Salary">
+                                        Product Count
+                                   
+                                    <input type="text" 
+                                           class="form-control" 
+                                           name="procount" 
+                                           #procount="ngModel" ngModel
+                                           required
+                                           pattern="[0-9]+"
+                                           /> </label>
+                                </div>
+
+                                <div *ngIf="procount.touched">
+                                  <div *ngIf="procount.errors?.['required']">
+                                    <b style="color: red;">Product count required.</b>
+                                  </div>
+                                  <div *ngIf="procount.errors?.['pattern']">
+                                    <font color= "red"><b>Invalid Product count.</b></font>
+                                  </div>
+                                </div>
+                                
+
+                                                              
+                                <button class="btn btn-success "(click)="insertProduct(myForm.value)">
+                                    Insert 
+                                </button>
+                            &nbsp;&nbsp;
+                                <button class="btn btn-primary" (click)="updateProduct(myForm.value)" >
+                                    Update 
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-danger" (click)="deleteProduct(myForm.value)">
+                                    Delete 
+                                </button>&nbsp;&nbsp;
+                                <button class="btn btn-warning"(click)="findProduct(myForm.value)" >
+                                    Find 
+                                </button>
+                                &nbsp;&nbsp;
+                                <button class="btn btn-info" (click)="findAllProduct()">
+                                    Find All
+                                </button>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+                <br>
+         <h3>{{result}}</h3>
+         <div style="width: 100%;" *ngIf="flag">
+          <table width="80%" align="center" class="table table-borderd">
+           <tr><th>Product Id</th><th>Product Name</th><th>Product Price</th><th>Product Image</th><th>Product Count</th></tr> 
+            <tr *ngFor="let pro of productarr">
+                <td> {{pro.id}} </td><td> {{pro.proName}} </td><td> {{pro.proPrice}} </td><td> {{pro.proimg}} </td><td> {{pro.procount}} </td>
+            </tr>
+         </table>
+         </div>
+    </body>
+</html>
