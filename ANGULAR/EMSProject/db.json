@@ -3,22 +3,17 @@
     {
       "id": "101",
       "empName": "kumar",
-      "empSalary": 300000
+      "empSalary": "90000"
     },
     {
       "id": "102",
-      "empName": "monesh",
-      "empSalary": 400000
+      "empName": "sasi",
+      "empSalary": "80000"
     },
     {
       "id": "103",
-      "empName": "sasi",
-      "empSalary": "34567"
-    },
-    {
-      "id": "2",
-      "empName": "ase",
-      "empSalary": "232"
+      "empName": "praveeen",
+      "empSalary": "9000"
     }
   ]
 }
